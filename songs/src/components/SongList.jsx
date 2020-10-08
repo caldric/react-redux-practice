@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getSongs, selectSong } from '../actions';
 
-class SongList extends Component {
-  componentDidMount() {
-    this.props.getSongs();
-  }
+const SongList = ({ songs, getSongs, selectSong }) => {
+  useEffect(() => {
+    getSongs();
+  }, []);
 
-  renderList() {
-    return this.props.songs.map((song) => {
+  const renderList = () => {
+    return songs.map((song) => {
       return (
         <div>
           <div>{song.title}</div>
           <div>
-            <button type="button" onClick={() => this.props.selectSong(song)}>
+            <button type="button" onClick={() => selectSong(song)}>
               Select
             </button>
           </div>
         </div>
       );
     });
-  }
+  };
 
-  render() {
-    return <div>{this.renderList()}</div>;
-  }
-}
+  return <div>{renderList()}</div>;
+};
 
 const mapStateToProps = (state) => {
   return { songs: state.songs };
