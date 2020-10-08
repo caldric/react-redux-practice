@@ -1,21 +1,24 @@
 import { combineReducers } from 'redux';
 
-const songsReducer = () => {
-  return [
-    { title: 'my future', artist: 'Billie Eilish' },
-    { title: 'Honest Man', artist: 'Ben Platt' },
-    { title: 'Bohemian Rhapsody', artist: 'Queen' },
-    { title: "I'm Not the Only One", artist: 'Sam Smith' },
-  ];
-};
-
-const selectedSongReducer = (state = {}, action) => {
+const songsReducer = (state = [], action) => {
   switch (action.type) {
-    case '':
+    case 'GET_SONGS':
       return action.payload;
     default:
       return state;
   }
 };
 
-export default combineReducers({ songsReducer });
+const selectedSongReducer = (state = null, action) => {
+  switch (action.type) {
+    case 'SELECT_SONG':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  songs: songsReducer,
+  selectedSong: selectedSongReducer,
+});
