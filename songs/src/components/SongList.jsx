@@ -9,7 +9,14 @@ class SongList extends Component {
 
   renderList() {
     return this.props.songs.map((song) => {
-      return <div>{song.title}</div>;
+      return (
+        <div>
+          <div>{song.title}</div>
+          <div>
+            <button type="button">Select</button>
+          </div>
+        </div>
+      );
     });
   }
 
