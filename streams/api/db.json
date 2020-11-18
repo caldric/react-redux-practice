@@ -9,6 +9,22 @@
       "title": "EHRMEHRGEHRD",
       "description": "360 NO SCOPE HEADSHOT WIN?!",
       "id": 2
+    },
+    {
+      "title": "My Stream",
+      "description": "This is a great stream.",
+      "id": 3
+    },
+    {
+      "title": "Other Stream",
+      "description": "Here's some stream",
+      "id": 4
+    },
+    {
+      "title": "I Created This Stream",
+      "description": "This was made by me!",
+      "userId": "101522194018297841332",
+      "id": 5
     }
   ]
 }
