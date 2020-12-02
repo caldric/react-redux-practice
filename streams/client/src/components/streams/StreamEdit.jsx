@@ -6,13 +6,14 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 
 class StreamEdit extends Component {
+  streamID = this.props.match.params.id;
+
   componentDidMount() {
-    const id = this.props.match.params.id;
-    this.props.fetchStream(id);
+    this.props.fetchStream(this.streamID);
   }
 
   onSubmit = (formValues) => {
-    console.log(formValues);
+    this.props.editStream(this.streamID, formValues);
   };
 
   render() {
