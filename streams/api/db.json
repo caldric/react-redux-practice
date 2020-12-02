@@ -33,7 +33,8 @@
     },
     {
       "title": "Me Streaming Component Reuse!",
-      "description": "This stream is about refactoring.",
+      "description": "This change was made by a patch request",
+      "userId": "101522194018297841332",
       "id": 7
     }
   ]
