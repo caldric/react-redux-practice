@@ -26,16 +26,10 @@
       "id": 5
     },
     {
-      "title": "Programmatic Navigation",
-      "description": "You should not see this on the form page???",
+      "title": "Delete",
+      "description": "Delete me",
       "userId": "101522194018297841332",
       "id": 6
-    },
-    {
-      "title": "Me Streaming Component Reuse!",
-      "description": "This change was made by a patch request",
-      "userId": "101522194018297841332",
-      "id": 7
     }
   ]
 }

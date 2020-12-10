@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { deleteStream, fetchStream } from '../../actions';
 
+import { Link } from 'react-router-dom';
 import Modal from '../Modal';
 import { connect } from 'react-redux';
-import { fetchStream } from '../../actions';
 import history from '../../history';
 
 class StreamDelete extends Component {
@@ -15,8 +16,15 @@ class StreamDelete extends Component {
   renderActions() {
     return (
       <>
-        <button className="ui button negative">Delete</button>
-        <button className="ui button">Cancel</button>
+        <button
+          onClick={() => this.props.deleteStream(this.streamID)}
+          className="ui button negative"
+        >
+          Delete
+        </button>
+        <Link to="/" className="ui button">
+          Cancel
+        </Link>
       </>
     );
   }
@@ -45,4 +53,6 @@ const mapStateToProps = (state, ownProps) => {
   return { stream: state.streams[id] };
 };
 
-export default connect(mapStateToProps, { fetchStream })(StreamDelete);
+export default connect(mapStateToProps, { deleteStream, fetchStream })(
+  StreamDelete
+);
