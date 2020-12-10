@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const App = () => {
-  return <div className="ui container">App</div>;
-};
+export default class App extends Component {
+  state = { language: 'english' };
 
-export default App;
+  onLanguageChange = (language) => {
+    this.setState({ language });
+  };
+
+  render() {
+    return (
+      <div className="ui container">
+        <div>
+          Select a language:
+          <i
+            className="flag us"
+            onClick={() => this.onLanguageChange('english')}
+          ></i>
+          <i
+            className="flag nl"
+            onClick={() => this.onLanguageChange('dutch')}
+          ></i>
+        </div>
+        {this.state.language}
+      </div>
+    );
+  }
+}
