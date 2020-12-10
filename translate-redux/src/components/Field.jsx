@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-export default class Field extends Component {
+import { connect } from 'react-redux';
+
+class Field extends Component {
   labelText(language) {
     switch (language) {
       case 'english':
@@ -15,9 +17,15 @@ export default class Field extends Component {
   render() {
     return (
       <div className="ui field">
-        <label>{this.labelText()}</label>
+        <label>{this.labelText(this.props.language)}</label>
         <input type="text" />
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return { language: state.language };
+};
+
+export default connect(mapStateToProps)(Field);
