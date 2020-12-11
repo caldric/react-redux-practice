@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 const languageReducer = (state = 'english', action) => {
   switch (action.type) {
@@ -10,5 +11,6 @@ const languageReducer = (state = 'english', action) => {
 };
 
 export default combineReducers({
+  form: formReducer,
   language: languageReducer,
 });

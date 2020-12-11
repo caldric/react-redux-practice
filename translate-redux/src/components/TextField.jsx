@@ -1,8 +1,9 @@
+import { Field, reduxForm } from 'redux-form';
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-class Field extends Component {
+class TextField extends Component {
   labelText(language) {
     switch (language) {
       case 'english':
@@ -14,12 +15,16 @@ class Field extends Component {
     }
   }
 
+  renderInput({ input }) {
+    return <input {...input} />;
+  }
+
   render() {
     return (
-      <div className="ui field">
+      <form className="ui field">
         <label>{this.labelText(this.props.language)}</label>
-        <input type="text" />
-      </div>
+        <Field name="text" component={this.renderInput} />
+      </form>
     );
   }
 }
@@ -28,4 +33,6 @@ const mapStateToProps = (state) => {
   return { language: state.language };
 };
 
-export default connect(mapStateToProps)(Field);
+const ReduxField = reduxForm({ form: 'sampleText' })(TextField);
+
+export default connect(mapStateToProps)(ReduxField);

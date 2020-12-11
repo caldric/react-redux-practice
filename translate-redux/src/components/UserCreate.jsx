@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Button from './Button';
-import Field from './Field';
+import Field from './TextField';
 import LanguageSelector from './LanguageSelector';
 
 export default class UserCreate extends Component {
