@@ -1,15 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AppThunk } from './store';
 
 const counterSlice = createSlice({
   name: 'counter',
   initialState: 0,
   reducers: {
-    increment: (count) => count + 1,
-    decrement: (count) => count - 1,
+    increment: (count: number) => count + 1,
+    decrement: (count: number) => count - 1,
   },
 });
 
 export const { reducer } = counterSlice;
-export const {
-  actions: { increment, decrement },
-} = counterSlice;
+export const { increment, decrement } = counterSlice.actions;
+
+// Thunks
+export const incrementAsync = (): AppThunk => (dispatch) => {
+  setTimeout(() => dispatch(increment()), 1000);
+};
+
+export const decrementAsync = (): AppThunk => (dispatch) => {
+  setTimeout(() => dispatch(decrement()), 1000);
+};
