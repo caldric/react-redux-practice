@@ -11,8 +11,8 @@ import {
 import { toggleDisplay } from './displayCounterSlice';
 
 const App: React.FC = () => {
-  const counter = useSelector((state: RootState) => state.counter);
-  const displayCounter = useSelector(
+  const counter: number = useSelector((state: RootState) => state.counter);
+  const displayCounter: boolean = useSelector(
     (state: RootState) => state.displayCounter
   );
   const dispatch = useDispatch();
@@ -23,14 +23,14 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <div className="sync-action-creators">
-        <div className="counter-display">
-          {renderCounter()}
-          <button type="button" onClick={() => dispatch(toggleDisplay())}>
-            Toggle Counter Display
-          </button>
-        </div>
+      <div className="counter-display">
+        {renderCounter()}
+        <button type="button" onClick={() => dispatch(toggleDisplay())}>
+          Toggle Counter Display
+        </button>
+      </div>
 
+      <div className="sync-action-creators">
         <button type="button" onClick={() => dispatch(decrement())}>
           Decrement
         </button>
