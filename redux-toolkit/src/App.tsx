@@ -8,16 +8,29 @@ import {
   incrementAsync,
   decrementAsync,
 } from './counterSlice';
+import { toggleDisplay } from './displayCounterSlice';
 
 const App: React.FC = () => {
   const counter = useSelector((state: RootState) => state.counter);
+  const displayCounter = useSelector(
+    (state: RootState) => state.displayCounter
+  );
   const dispatch = useDispatch();
+
+  const renderCounter = (): JSX.Element | null => {
+    return displayCounter ? <p>Counter: {counter}</p> : null;
+  };
 
   return (
     <div>
-      <p>Counter: {counter}</p>
-
       <div className="sync-action-creators">
+        <div className="counter-display">
+          {renderCounter()}
+          <button type="button" onClick={() => dispatch(toggleDisplay())}>
+            Toggle Counter Display
+          </button>
+        </div>
+
         <button type="button" onClick={() => dispatch(decrement())}>
           Decrement
         </button>
